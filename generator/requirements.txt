@@ -1,0 +1,15 @@
+Jinja2
+PyYAML
+coverage
+docutils
+flake8
+mccabe
+pep8
+pyflakes
+pylint
+pytest
+tox
+voluptuous
+construct
+pytest-cov
+pytest-xdist
