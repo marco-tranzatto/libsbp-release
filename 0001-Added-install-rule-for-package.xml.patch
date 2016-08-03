@@ -1,0 +1,23 @@
+From 266b607f634803c9c6ae2b254d7857e4e5730663 Mon Sep 17 00:00:00 2001
+From: Michael Stoll <michael.stoll@stolltec.com>
+Date: Wed, 3 Aug 2016 10:35:04 +0200
+Subject: [PATCH] Added install rule for package.xml
+
+---
+ CMakeLists.txt | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 CMakeLists.txt
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..d929055
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,3 @@
++
++# Install catkin package.xml
++install(FILES package.xml DESTINATION share/libsbp)
+\ No newline at end of file
+-- 
+1.9.1
+
