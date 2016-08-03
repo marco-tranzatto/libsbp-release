@@ -1,0 +1,44 @@
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - check
+    - doxygen
+    - cmake
+    - gradle
+    - libgmp-dev
+
+cache:
+  apt: true
+  directories:
+    - $HOME/.stack/
+    - .stack-work/
+
+before_install:
+  - mkdir -p $HOME/texlive && curl -L https://github.com/urdh/texlive-blob/releases/download/20160619/texlive.tar.xz | tar -JxC $HOME/texlive
+  - export PATH="$PATH:$HOME/texlive/bin/x86_64-linux"
+  # Install stack
+  - mkdir -p $HOME/.local/bin
+  - export PATH=$HOME/.local/bin:$PATH
+  - travis_retry curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C $HOME/.local/bin '*/stack'
+  # Install node 6; from https://github.com/nodejs/nan/blob/master/.travis.yml
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install 6
+  - npm install npm
+  - mv node_modules npm
+  - npm/.bin/npm --version
+  - npm/.bin/npm install
+
+install:
+  - tlmgr update --self
+  - tlmgr install standalone #standalone.sty
+  - tlmgr install cmbright #cmbright font
+  - pip install --upgrade --user Sphinx
+  - npm install -g mocha
+  - npm install
+  - stack update
+  - stack setup
+
+script:
+  - make test
+  - make docs
