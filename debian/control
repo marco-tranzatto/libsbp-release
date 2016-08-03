@@ -1,0 +1,12 @@
+Source: ros-indigo-foo
+Section: misc
+Priority: extra
+Maintainer: Michael Stoll <michael.stoll@stolltec.com>
+Build-Depends: debhelper (>= 9.0.0), cmake
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-indigo-foo
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-catkin
+Description: The foo package
