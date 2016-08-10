@@ -1,7 +1,15 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(libsbp)
 
+## Find catkin macros and libraries
+find_package(catkin REQUIRED)
 
+catkin_package(
+#   INCLUDE_DIRS include
+   LIBRARIES sbp
+#  CATKIN_DEPENDS 
+#  DEPENDS 
+)
 
 #############
 ## Build ##
@@ -73,9 +81,6 @@ add_custom_target(gen-python ALL
 #############
 ## Install ##
 #############
-
-# Install catkin package.xml
-install(FILES package.xml DESTINATION share/libsbp)
 
 # Install python module
 install(FILES ${PYTHON_SRC}
