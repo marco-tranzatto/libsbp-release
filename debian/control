@@ -1,0 +1,12 @@
+Source: ros-indigo-libsbp
+Section: misc
+Priority: extra
+Maintainer: Michael Stoll <michael.stoll@stolltec.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-indigo-libsbp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: Switftnav libspb realeases into ROS ecosystem
