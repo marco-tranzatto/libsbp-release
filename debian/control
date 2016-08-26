@@ -1,0 +1,12 @@
+Source: ros-jade-libsbp
+Section: misc
+Priority: extra
+Maintainer: Michael Stoll <michael.stoll@stolltec.com>
+Build-Depends: debhelper (>= 9.0.0), ros-jade-catkin
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jade-libsbp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: Switftnav libspb realeases into ROS ecosystem
